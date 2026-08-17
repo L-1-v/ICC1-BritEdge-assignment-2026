@@ -3,10 +3,15 @@ import os
 from datetime import datetime, timezone
 
 from dotenv import load_dotenv
-from flask import Flask
 
 # Load environment variables from a local .env file, if present.
 load_dotenv()
+
+from azure.monitor.opentelemetry import configure_azure_monitor
+
+configure_azure_monitor()
+
+from flask import Flask
 
 from config import Config
 from extensions import login_manager
